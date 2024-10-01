@@ -1,0 +1,38 @@
+---
+import "../styles/site.css"
+import { siteTitle } from '../site';
+import type { Page } from "../site";
+import { ClientRouter } from "astro:transitions";
+import SiteFooter from "@components/SiteFooter.astro";
+
+interface Props {
+  page: Page;
+}
+
+const { page } = Astro.props;
+const htmlTitle = siteTitle + ': ' + page.navTitle;
+---
+<html lang="en" data-theme="light">
+  <head>
+    <title>{htmlTitle}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="sitemap" href="/sitemap.xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <ClientRouter />
+  </head>
+  <body>
+    <slot />
+    <SiteFooter />
+    <!-- Google tag (gtag.js) -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-7WJ9NLLFDK"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7WJ9NLLFDK');
+    </script>
+  </body>
+</html>

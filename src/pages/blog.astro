@@ -1,0 +1,51 @@
+---
+import SiteNav from "@components/SiteNav.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import type { Page } from "../site";
+import { months } from "../site"
+import { getCollection } from 'astro:content';
+
+async function getPosts() {
+  const posts = await getCollection('blog');
+  return posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+}
+const posts = await getPosts();
+
+const page: Page = {
+	navTitle:  "Blog",
+	heroTitle:  "Blog",
+	heroSubtitle:  "One Family, One Love",
+};
+---
+
+<PageLayout page={page}>
+  <!-- Hero -->
+  <style>
+    .hero {
+      background-image: url("../assets/hero15.webp");
+    }
+  </style>
+  <div class="hero" data-theme="dark">
+    <SiteNav/>
+    <header class="container">
+      <h1>{page.heroTitle}</h1>
+      <p>{page.heroSubtitle}</p>
+    </header>
+  </div>
+  <!-- ./ Hero -->
+
+  <main class="container">
+    <ul>
+      {posts.map(post => (
+        <li>
+          <a href={`/blog/${post.id}`}>{post.data.title}</a>
+          <small class="seperator">
+            {months[post.data.pubDate.getMonth()]}
+            {post.data.pubDate.getDate()}, {post.data.pubDate.getFullYear()}
+          </small>
+          <p><i>{post.data.description}</i></p>
+        </li>
+      ))}
+    </ul>
+  </main>
+</PageLayout>

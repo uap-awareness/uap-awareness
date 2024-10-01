@@ -1,0 +1,53 @@
+---
+import SiteNav from "@components/SiteNav.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import type { Page } from "../site";
+const page: Page = {
+	navTitle:  "About",
+	heroTitle:  "About",
+	heroSubtitle:  "One Family, One Love",
+};
+---
+
+<PageLayout page={page}>
+  <!-- Hero -->
+  <style>
+    .hero {
+      background-image: url("../assets/hero17.webp");
+    }
+  </style>
+  <div class="hero" data-theme="dark">
+    <SiteNav/>
+    <header class="container">
+      <h1>{page.heroTitle}</h1>
+      <p>{page.heroSubtitle}</p>
+    </header>
+  </div>
+  <!-- ./ Hero -->
+   
+  <main class="container">
+    <p>
+      We're a philanthropic organization acting to raise the vibration of 
+      Earth through letter writing.
+    </p>
+
+    <p>
+      Our mission is serving humanity with the encouragement of disclosure of
+      our galactic spirit family here on Earth.
+    </p>
+
+    <p>
+      We send letters to U.S. military, scientific, and
+      political leaders requesting the public disclosure of information
+      related to unidentified aerial phenomena (UAP), and indications of
+      extraterrestrial life and technologies.
+    </p>
+
+    <p>
+      This is a loving and inspired action in an <a
+        href="https://www.bashar.org/socialexperiment"
+        >Interstellar Alliance Social Experiment.</a
+      >
+    </p>
+  </main>
+</PageLayout>

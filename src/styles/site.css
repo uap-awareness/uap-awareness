@@ -1,0 +1,34 @@
+:root {
+  --spacing: 2rem;
+  --font-weight: 400;
+  --border-radius: 0;
+}
+
+.hero {
+  background-color: #394046;
+  background-position: center;
+  background-size: cover;
+  header {
+    padding: var(--spacing) 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.nav {
+  display: block;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 1.0);
+}
+
+@media screen and (min-width: 640px) {
+  .nav {
+    display: flex;
+  }
+}
+
+.seperator {
+  padding: 1ch;
+}
+
+article > ul {
+  padding: 0;
+}

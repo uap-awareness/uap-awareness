@@ -1,0 +1,46 @@
+---
+import SiteNav from "@components/SiteNav.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import type { Page } from "../../site";
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.sort((a, b) => a.data.pubDate.getTime() - b.data.pubDate.getTime()).map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+import { months } from "../../site"
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const page: Page = {
+	navTitle:  "Blog: " + post.data.title,
+	heroTitle:  post.data.title,
+	heroSubtitle:  post.data.subtitle,
+};
+---
+
+<PageLayout page={page}>
+	<!-- Hero -->
+	<style>
+		.hero {
+			background-image: url("../../assets/hero24.webp");
+		}
+	</style>
+	<div class="hero" data-theme="dark">
+		<SiteNav/>
+		<header class="container">
+			<h1>{page.heroTitle}</h1>
+			<p>{page.heroSubtitle}</p>
+		</header>
+	</div>
+	<!-- ./ Hero -->
+
+	<main class="container">
+		<p><i><small>{months[post.data.pubDate.getMonth()]}
+			{post.data.pubDate.getDate()}, {post.data.pubDate.getFullYear()}</small></i></p>
+		<Content />
+	</main>
+</PageLayout>

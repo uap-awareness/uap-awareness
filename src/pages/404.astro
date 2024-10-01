@@ -1,0 +1,36 @@
+---
+import SiteNav from "@components/SiteNav.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import type { Page } from "../site";
+const page: Page = {
+	navTitle:  "Page Not Found",
+	heroTitle:  "Page Not Found",
+	heroSubtitle:  "One Family, One Love",
+};
+---
+
+<PageLayout page={page}>
+	<!-- Hero -->
+	<style>
+		.hero {
+			background-image: url("../assets/hero01.webp");
+		}
+	</style>
+	<div class="hero" data-theme="dark">
+		<SiteNav/>
+		<header class="container">
+			<h1>{page.heroTitle}</h1>
+			<p>{page.heroSubtitle}</p>
+		</header>
+	</div>
+	<!-- ./ Hero -->
+
+	<main class="container">
+		<p>
+			That page doesn't exist.
+		</p>
+		<section>
+			<a href="/" role="button">Back to home</a>
+		</section>
+	</main>
+</PageLayout>

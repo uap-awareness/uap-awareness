@@ -1,2 +1,1 @@
-# uap-awareness
-UAP Awareness website
+# UAP Awareness website
