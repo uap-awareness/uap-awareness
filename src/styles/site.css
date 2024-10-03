@@ -63,6 +63,15 @@ body {
   font-weight: bold;
   text-decoration: none;
 }
+.cta-button.secondary {
+  background-color: #ffffff;
+  color: #00bfff;
+  border: 2px solid #00bfff;
+}
+.cta-button:hover {
+  opacity: 0.85;
+}  
+
 .cta-link {
   font-weight: bold;
   color: #00bfff;
@@ -92,6 +101,7 @@ body {
   line-height: 1.6;
 }
 
+.main-content h1,
 .main-content h2,
 .main-content h3,
 .main-content h4 {

@@ -1,0 +1,89 @@
+---
+import SiteNav from "@components/SiteNav.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+const page = {
+  navTitle: "Thank You",
+  heroTitle: "Thank You",
+  heroSubtitle: "Kindness in Action",
+};
+---
+
+<PageLayout page={page}>
+  <!-- Hero -->
+  <style>
+    /* Responsive styling */
+    @media only screen and (max-width: 480px) {
+      .hero {
+        background-image: url("../assets/hero01-sm.webp");
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+    @media only screen and (min-width: 481px) and (max-width: 768px) {
+      .hero {
+        background-image: url("../assets/hero01-md.webp");
+      }
+    }
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+      .hero {
+        background-image: url("../assets/hero01-lg.webp");
+      }
+    }
+    @media only screen and (min-width: 1025px) {
+      .hero {
+        background-image: url("../assets/hero01-xl.webp");
+      }
+    }
+    
+  </style>
+
+  <div class="hero" data-theme="dark">
+    <SiteNav/>
+    <header class="container">
+      <h1>{page.heroTitle}</h1>
+      <p>{page.heroSubtitle}</p>
+    </header>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container main-content">
+    <header>
+      <h1>Thank You for Your Generosity!</h1>
+      <p>Your contribution makes a meaningful impact in our mission to raise awareness of unidentified aerial phenomena and advocate for transparency.</p>
+    </header>
+
+    <section>
+      <hgroup>
+        <h3>Your Impact</h3>
+        <p>With your support, UAP Awareness is one step closer to uncovering the truth and promoting public education about UAPs.</p>
+      </hgroup>
+
+      <hgroup>
+        <h3>Letter Writing</h3>
+        <p><strong>2,383</strong> total letters sent to U.S. military, scientific, and political leaders, thanks to donors like you.</p>
+      </hgroup>
+
+      <hgroup>
+        <h3>Interstellar Alliance Social Experiment</h3>
+        <p>Learn more about the <a href="https://www.bashar.org/socialexperiment">Interstellar Alliance Social Experiment</a> at <a href="https://www.bashar.org/">Bashar.org</a>.</p>
+      </hgroup>
+    </section>
+
+    <section>
+      <hgroup>
+        <h3>Stay Connected</h3>
+        <p>Follow our blog for updates on the letter-writing campaigns.</p>
+      </hgroup>
+      <a href="/blog" class="cta-button secondary">Read Our Blog</a>
+    </section>
+
+    <footer>
+      <p>Thank you again for supporting UAP Awareness. Together we are making a difference!</p>
+      <a href="/" class="cta-link">Return to Homepage</a>
+    </footer>
+  </main>
+</PageLayout>
