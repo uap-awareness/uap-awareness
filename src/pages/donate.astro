@@ -1,70 +1,17 @@
 ---
 import SiteNav from "@components/SiteNav.astro";
 import PageLayout from "@layouts/PageLayout.astro";
-import type { Page } from "../site";
-const page: Page = {
-  navTitle:  "Donate",
-  heroTitle:  "Your Support Can Make the Truth Known",
-  heroSubtitle:  "Join the movement for transparency about UAPs and extraterrestrial life.",
+const page = {
+  navTitle: "Donate",
+  heroTitle: "Your Support Can Make the Truth Known",
+  heroSubtitle: "Join the movement for transparency about UAPs and extraterrestrial life.",
 };
 ---
 
 <PageLayout page={page}>
   <!-- Hero -->
   <style>
-    .hero {
-      position: relative;
-      color: #ffffff;
-      text-align: center;
-      padding: 4rem 2rem;
-      background-size: cover;
-      background-position: center;
-      background-color: #1a1a1a;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5); /* Dark overlay for better contrast */
-      z-index: 1; /* Keep overlay below navigation */
-    }
-
-    .hero header, .cta-button {
-      z-index: 2; /* Ensure content above overlay */
-      position: relative;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero .cta-button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: #00bfff;
-      color: #000;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    /* Ensure SiteNav stays clickable */
-    .hero nav {
-      z-index: 3; /* Keep navigation on top */
-      position: relative;
-    }
-
-    /* Small screens (320px - 480px) */
+    /* Responsive styling */
     @media only screen and (max-width: 480px) {
       .hero {
         background-image: url("../assets/hero20-sm.webp");
@@ -76,22 +23,16 @@ const page: Page = {
         font-size: 1rem;
       }
     }
-
-    /* Medium screens (481px - 768px) */
     @media only screen and (min-width: 481px) and (max-width: 768px) {
       .hero {
         background-image: url("../assets/hero20-md.webp");
       }
     }
-
-    /* Large screens (769px - 1024px) */
     @media only screen and (min-width: 769px) and (max-width: 1024px) {
       .hero {
         background-image: url("../assets/hero20-lg.webp");
       }
     }
-
-    /* Extra large screens (1025px and above) */
     @media only screen and (min-width: 1025px) {
       .hero {
         background-image: url("../assets/hero20-xl.webp");
@@ -107,18 +48,18 @@ const page: Page = {
       <a href="#donation-section" class="cta-button">Donate Now</a>
     </header>
   </div>
-  <!-- ./ Hero -->
 
-  <main class="container">
-    <hgroup> 
-      <h3>Being the Change</h3> 
-      <p>Your donation drives the pursuit of truth and transparency about UAPs</p> 
-    </hgroup> 
+  <!-- Main Content -->
+  <main class="container main-content">
+    <hgroup>
+      <h3>Being the Change</h3>
+      <p>Your donation drives the pursuit of truth and transparency about UAPs</p>
+    </hgroup>
     <p><strong>Why Your Support Matters</strong></p>
     <p>
       By donating, you’re joining a global effort to demand openness and truth about unidentified aerial phenomena (UAP) and the possibility of extraterrestrial life. Your support empowers us to call for transparency from U.S. leaders, ensuring the public gets the information it deserves.
     </p>
-		<p><strong>Your Donation is Tax-Deductible</strong></p>
+    <p><strong>Your Donation is Tax-Deductible</strong></p>
     <p>
       UAP Awareness is a 501(c)(3) nonprofit organization, and your donation is fully tax-deductible. You will receive an official receipt for your records.
     </p>
@@ -139,9 +80,9 @@ const page: Page = {
 
     <hr />
 
-    <hgroup> 
-      <h3>Building a Brighter Future</h3> 
-      <p>We’re shaping a future based on transparency and cooperation</p> 
+    <hgroup>
+      <h3>Building a Brighter Future</h3>
+      <p>We’re shaping a future based on transparency and cooperation</p>
     </hgroup>
     <p><strong>The Power of Collective Action</strong></p>
     <p>

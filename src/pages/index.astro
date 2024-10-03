@@ -1,182 +1,130 @@
 ---
 import SiteNav from "@components/SiteNav.astro";
 import PageLayout from "@layouts/PageLayout.astro";
-import type { Page } from "../site";
-import { Image } from "astro:assets";
 import { Picture } from 'astro:assets';
 import imgEnvelope from "../assets/ia-step3-env.webp";
 import imgLetter from "../assets/ia-step3-ltr.webp";
-const page: Page = {
-	navTitle:  "Home",
-	heroTitle:  "Advocating for UAP Disclosure",
-	heroSubtitle:  "We are our governments",
+const page = {
+  navTitle: "Home",
+  heroTitle: "Advocating for UAP Disclosure",
+  heroSubtitle: "We are our governments",
 };
 ---
 
 <PageLayout page={page}>
-	<!-- Hero -->
-	<style>
-		/* Small screens (320px - 480px) */
-		@media only screen and (max-width: 480px) {
-			.hero {
-				background-image: url("../assets/hero20-sm.webp");
-			}
-		}
-		/* Medium screens (481px - 768px) */
-		@media only screen and (min-width: 481px) and (max-width: 768px) {
-			.hero {
-				background-image: url("../assets/hero20-md.webp");
-			}
-		}
-		/* Large screens (769px - 1024px) */
-		@media only screen and (min-width: 769px) and (max-width: 1024px) {
-			.hero {
-				background-image: url("../assets/hero20-lg.webp");
-			}
-		}
-		/* Extra large screens (1025px and above) */
-		@media only screen and (min-width: 1025px) {
-			.hero {
-				background-image: url("../assets/hero20-xl.webp");
-			}
-		}
-	</style>
-	<div class="hero" data-theme="dark">
-		<SiteNav/>
-		<header class="container">
-			<h1>{page.heroTitle}</h1>
-			<p>{page.heroSubtitle}</p>
-		</header>
-	</div>
-	<!-- ./ Hero -->
+  <!-- Hero -->
+  <style>
+    /* Responsive styling */
+    @media only screen and (max-width: 480px) {
+      .hero {
+        background-image: url("../assets/hero20-sm.webp");
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+    @media only screen and (min-width: 481px) and (max-width: 768px) {
+      .hero {
+        background-image: url("../assets/hero20-md.webp");
+      }
+    }
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+      .hero {
+        background-image: url("../assets/hero20-lg.webp");
+      }
+    }
+    @media only screen and (min-width: 1025px) {
+      .hero {
+        background-image: url("../assets/hero20-xl.webp");
+      }
+    }
 
-	<main class="container grid">
-		<section>
-			<hgroup>
-				<h3>Letter Writing</h3>
-				<p>2,383 total letters sent</p>
-			</hgroup>
-			<p>
-				Every three months we send "Interstellar Alliance Social Experiment:
-				Step Three" physical letters to U.S. military, scientific, and
-				political leaders requesting public disclosure of UAPs, and
-				indications of extraterrestrial life and technologies.
-			</p>
+  </style>
 
-			<hgroup>
-				<h3>Efficient, economical, and motivated</h3>
-			</hgroup>
-			<ul>
-				<li>
-					We mail at economical postal rates offered to
-					nonprofits.
-				</li>
-				<li>
-					We write our own software to collect addresses, generate letters,
-					and generate envelopes.
-				</li>
-				<li>
-					We presort mailpieces for postal discounts.
-				</li>
-				<li>
-					Paper and envelopes are bought in bulk at economical business
-					rates.
-				</li>
-				<li>We print, stuff, and drive letters to a post office.</li>
-			</ul>
+  <div class="hero" data-theme="dark">
+    <SiteNav/>
+    <header class="container">
+      <h1>{page.heroTitle}</h1>
+      <p>{page.heroSubtitle}</p>
+    </header>
+  </div>
 
-			<hgroup>
-				<h3>We amplify letter writing</h3>
-			</hgroup>
-			<p>One dollar offered through UAP Awareness sends more letters than one person could at retail prices.</p>
+  <!-- Main Content -->
+  <main class="container main-content grid">
+    <section>
+      <h3>Letter Writing</h3>
+      <p>2,383 total letters sent</p>
+      <p>
+        Every three months, we send "Interstellar Alliance Social Experiment: Step Three" physical letters to U.S. military, scientific, and political leaders, requesting public disclosure of UAPs and indications of extraterrestrial life and technologies.
+      </p>
 
-			<p>
-				<a
-					href="/donate"
-					>Empower this loving mission with an offering.</a
-				>
-			</p>
+      <h3>Efficient, economical, and motivated</h3>
+      <ul>
+        <li>We mail at economical postal rates offered to nonprofits.</li>
+        <li>We write our own software to collect addresses, generate letters, and generate envelopes.</li>
+        <li>We presort mailpieces for postal discounts.</li>
+        <li>We buy paper and envelopes in bulk at economical business rates.</li>
+        <li>We print, stuff, and drive letters to a post office.</li>
+      </ul>
 
-			<p>
-				<figure>
-					<figcaption>
-						Here's an envelope sent from a recent campaign.
-					</figcaption>
-					<Picture
-						src={imgEnvelope}
-						widths={[480, 768, 1024, 1080]}
-						formats={['webp']}
-						alt="Envelope from a campaign"
-					/>
-				</figure>
-			</p>
+      <h3>We amplify letter writing</h3>
+      <p>One dollar offered through UAP Awareness sends more letters than one person could at retail prices.</p>
+      <p><a href="/donate" class="cta-link">Empower this loving mission with an offering.</a></p>
 
-			<p>
-				<figure>
-					<figcaption>
-						Here's a letter sent from a recent campaign.
-					</figcaption>
-					<Picture
-						src={imgLetter}
-						widths={[480, 768, 1024, 1080]}
-						formats={['webp']}
-						alt="Letter from a campaign"
-					/>
-				</figure>
-			</p>
-		</section>
+      <figure>
+        <figcaption>Here's an envelope sent from a recent campaign.</figcaption>
+        <Picture src={imgEnvelope} widths={[480, 768, 1024, 1080]} formats={['webp']} alt="Envelope from a campaign" />
+      </figure>
 
-		<aside>
-			<article>
-				<header>
-					<b>Letters Sent</b>
-				</header>
-				<ul>
-					<li><kbd>2,383</kbd> <i>total</i> letters</li>
-					<li><kbd>29</kbd> to <i>U.S. military</i> leaders</li>
-					<li><kbd>452</kbd> to <i>U.S. scientific</i> leaders</li>
-					<li><kbd>1,902</kbd> to <i>U.S. political</i> leaders</li>
-				</ul>
-			</article>
+      <figure>
+        <figcaption>Here's a letter sent from a recent campaign.</figcaption>
+        <Picture src={imgLetter} widths={[480, 768, 1024, 1080]} formats={['webp']} alt="Letter from a campaign" />
+      </figure>
+    </section>
 
-			<article>
-				<header><b>Military leaders reached</b></header>
-				<ul>
-					<li>All <i>U.S. Joint Chiefs of Staff</i></li>
-					<li><i>U.S. Pentagon</i> leaders</li>
-					<li><i>U.S. Office of Naval Intelligence</i> leaders</li>
-					<li><i>U.S. Fleet Forces Command</i> leaders</li>
-				</ul>
-			</article>
+    <aside>
+      <article>
+        <header>Letters Sent</header>
+        <ul>
+          <li><kbd>2,383</kbd> <i>total letters</i></li>
+          <li><kbd>29</kbd> to <i>U.S. military leaders</i></li>
+          <li><kbd>452</kbd> to <i>U.S. scientific leaders</i></li>
+          <li><kbd>1,902</kbd> to <i>U.S. political leaders</i></li>
+        </ul>
+      </article>
 
-			<article>
-				<header><b>Scientific leaders reached</b></header>
-				<ul>
-					<li><i>NASA administrative</i> leaders</li>
-					<li><i>NASA scientific</i> leaders</li>
-				</ul>
-			</article>
+      <article>
+        <header>Military Leaders Reached</header>
+        <ul>
+          <li>All U.S. Joint Chiefs of Staff</li>
+          <li>U.S. Pentagon leaders</li>
+          <li>U.S. Office of Naval Intelligence leaders</li>
+          <li>U.S. Fleet Forces Command leaders</li>
+        </ul>
+      </article>
 
-			<article>
-				<header><b>Political leaders reached</b></header>
-				<ul>
-					<li>
-						<kbd>439</kbd>
-						<i>U.S. House of Representatives</i> members. Includes each home district
-						office and Washington D.C.
-					</li>
-					<li>
-						<kbd>100</kbd>
-						<i>U.S. Senators</i>. Includes each home district office and
-						Washington D.C.
-					</li>
-					<li><kbd>55</kbd> <i>U.S. state and territory governors</i></li>
-					<li>The <i>U.S. Secretary of State</i></li>
-					<li>The <i>U.S. Vice President</i></li>
-					<li>The <i>U.S. President</i></li>
-				</ul>
-			</article>
+      <article>
+        <header>Scientific Leaders Reached</header>
+        <ul>
+          <li>NASA administrative leaders</li>
+          <li>NASA scientific leaders</li>
+        </ul>
+      </article>
 
-		</aside>
-	</main>
+      <article>
+        <header>Political Leaders Reached</header>
+        <ul>
+          <li><kbd>439</kbd> U.S. House of Representatives members</li>
+          <li><kbd>100</kbd> U.S. Senators</li>
+          <li><kbd>55</kbd> U.S. state and territory governors</li>
+          <li>The U.S. Secretary of State</li>
+          <li>The U.S. Vice President</li>
+          <li>The U.S. President</li>
+        </ul>
+      </article>
+    </aside>
+  </main>
 </PageLayout>

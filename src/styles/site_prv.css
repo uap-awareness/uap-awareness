@@ -1,0 +1,45 @@
+:root {
+  --spacing: 2rem;
+  --font-weight: 400;
+  --border-radius: 0;
+}
+
+.hero {
+  background-color: #394046;
+  background-position: center;
+  background-size: cover;
+  header {
+    padding: var(--spacing) 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.nav {
+  display: block;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 1.0);
+  /* Ensure SiteNav stays clickable on Donate page */
+  z-index: 3; /* Keep navigation on top */
+  position: relative;
+}
+
+@media screen and (min-width: 640px) {
+  .nav {
+    display: flex;
+  }
+}
+
+.seperator {
+  padding: 1ch;
+}
+
+article > ul {
+  padding: 0;
+}
+
+.post-date {
+  font-size: 0.9rem; /* Make the text slightly smaller */
+  color: #999; /* Use a light gray color for subtle emphasis */
+  display: block; /* Ensure it takes its own line */
+  margin-bottom: 1rem; /* Add space below the date */
+  line-height: 1.5; /* Ensure proper spacing for better readability */
+}

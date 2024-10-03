@@ -1,51 +1,45 @@
 ---
 import SiteNav from "@components/SiteNav.astro";
 import PageLayout from "@layouts/PageLayout.astro";
-import type { Page } from "../site";
-import { months } from "../site"
-import { getCollection } from 'astro:content';
-
-async function getPosts() {
-  const posts = await getCollection('blog');
-  return posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
-}
-const posts = await getPosts();
-
-const page: Page = {
-	navTitle:  "Blog",
-	heroTitle:  "Blog",
-	heroSubtitle:  "One family, one love",
+const page = {
+  navTitle: "Blog",
+  heroTitle: "Blog",
+  heroSubtitle: "One family, one love",
 };
 ---
 
 <PageLayout page={page}>
   <!-- Hero -->
-	<style>
-		/* Small screens (320px - 480px) */
-		@media only screen and (max-width: 480px) {
-			.hero {
-				background-image: url("../assets/hero15-sm.webp");
-			}
-		}
-		/* Medium screens (481px - 768px) */
-		@media only screen and (min-width: 481px) and (max-width: 768px) {
-			.hero {
-				background-image: url("../assets/hero15-md.webp");
-			}
-		}
-		/* Large screens (769px - 1024px) */
-		@media only screen and (min-width: 769px) and (max-width: 1024px) {
-			.hero {
-				background-image: url("../assets/hero15-lg.webp");
-			}
-		}
-		/* Extra large screens (1025px and above) */
-		@media only screen and (min-width: 1025px) {
-			.hero {
-				background-image: url("../assets/hero15-xl.webp");
-			}
-		}
-	</style>
+  <style>
+    /* Small screens (320px - 480px) */
+    @media only screen and (max-width: 480px) {
+      .hero {
+        background-image: url("../assets/hero15-sm.webp");
+      }
+    }
+
+    /* Medium screens (481px - 768px) */
+    @media only screen and (min-width: 481px) and (max-width: 768px) {
+      .hero {
+        background-image: url("../assets/hero15-md.webp");
+      }
+    }
+
+    /* Large screens (769px - 1024px) */
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+      .hero {
+        background-image: url("../assets/hero15-lg.webp");
+      }
+    }
+
+    /* Extra large screens (1025px and above) */
+    @media only screen and (min-width: 1025px) {
+      .hero {
+        background-image: url("../assets/hero20-xl.webp");
+      }
+    }
+  </style>
+
   <div class="hero" data-theme="dark">
     <SiteNav/>
     <header class="container">
@@ -53,20 +47,20 @@ const page: Page = {
       <p>{page.heroSubtitle}</p>
     </header>
   </div>
-  <!-- ./ Hero -->
 
-  <main class="container">
+  <!-- Blog Listing -->
+  <main class="container blog-list">
     <ul>
-      {posts.map(post => (
-        <li>
-          <a href={`/blog/${post.id}`}>{post.data.title}</a>
-          <small class="seperator">
-            {months[post.data.pubDate.getMonth()]}
-            {post.data.pubDate.getDate()}, {post.data.pubDate.getFullYear()}
-          </small>
-          <p><i>{post.data.description}</i></p>
-        </li>
-      ))}
+      <li>
+        <a href="/blog/oni-response/">Response from the U.S. Office of Naval Intelligence</a>
+        <small>September 30, 2024</small>
+        <p>The ONI says they don't have any records on UFOs and UAPs.</p>
+      </li>
+      <li>
+        <a href="/blog/2024-q3-letters/">2024 Q3 Letters</a>
+        <small>August 1, 2024</small>
+        <p>2,383 letters sent to U.S. military, scientific, and political leaders requesting public disclosure of UAPs.</p>
+      </li>
     </ul>
   </main>
 </PageLayout>

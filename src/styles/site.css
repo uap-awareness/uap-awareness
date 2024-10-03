@@ -1,24 +1,82 @@
 :root {
   --spacing: 2rem;
   --font-weight: 400;
-  --border-radius: 0;
+  --border-radius: 5px;
+  /* Unified border radius for buttons */
+  --primary-color: #00bfff;
+  --background-dark: #1a1a1a;
+  --text-light: #ffffff;
+  --text-muted: #999;
+  --hero-text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+body {
+  font-weight: var(--font-weight);
+}
+
+/* Hero Section */
 .hero {
-  background-color: #394046;
-  background-position: center;
+  position: relative;
+  color: var(--text-light);
+  text-align: center;
+  padding: 4rem 2rem;
   background-size: cover;
-  header {
-    padding: var(--spacing) 0;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-  }
+  background-position: center;
+  background-color: var(--background-dark);
 }
 
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero header {
+  z-index: 2;
+  position: relative;
+  padding: var(--spacing) 0;
+  text-shadow: var(--hero-text-shadow);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Call-to-action button */
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #00bfff;
+  color: #000;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.cta-link {
+  font-weight: bold;
+  color: #00bfff;
+  text-decoration: none;
+}
+.cta-link:hover {
+  text-decoration: underline;
+}
+
+/* Navigation */
 .nav {
   display: block;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 1.0);
-  /* Ensure SiteNav stays clickable on Donate page */
-  z-index: 3; /* Keep navigation on top */
+  z-index: 3;
   position: relative;
 }
 
@@ -28,10 +86,163 @@
   }
 }
 
-.seperator {
-  padding: 1ch;
+/* Main content styles */
+.main-content {
+  margin-top: 1.5rem;
+  line-height: 1.6;
 }
 
-article > ul {
+.main-content h2,
+.main-content h3,
+.main-content h4 {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.main-content hgroup {
+  margin-bottom: 2rem;
+}
+
+.main-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.main-content a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.main-content a:hover {
+  text-decoration: underline;
+}
+
+.main-content ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  list-style: disc;
+}
+
+/* Sidebar / Aside */
+aside article {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+aside header {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+aside ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+aside ul li {
+  margin-bottom: 0.5rem;
+}
+
+aside ul kbd {
+  font-weight: bold;
+  color: #00bfff;
+}
+
+article>ul {
   padding: 0;
+}
+
+hgroup {
+  margin-bottom: 2rem;
+}
+
+blockquote {
+  padding-left: 1rem;
+  border-left: 5px solid var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+/* Date for blog posts */
+.post-date {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Responsive Images */
+figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+figcaption {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* Specific Styles for Widgets (like Donation form) */
+#donation-section iframe {
+  position: absolute;
+  border: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.blog-list {
+  margin-top: 3rem;
+}
+
+.blog-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.blog-list li {
+  margin-bottom: 1.5rem;
+}
+
+.blog-list a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #00bfff;
+}
+
+.blog-list a:hover {
+  text-decoration: underline;
+}
+
+.blog-list small {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.blog-list p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #333;
 }

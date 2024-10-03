@@ -1,42 +1,45 @@
 ---
 import SiteNav from "@components/SiteNav.astro";
 import PageLayout from "@layouts/PageLayout.astro";
-import type { Page } from "../site";
-const page: Page = {
-	navTitle:  "About",
-	heroTitle:  "About",
-	heroSubtitle:  "One family, one love",
+const page = {
+  navTitle: "About",
+  heroTitle: "About UAP Awareness",
+  heroSubtitle: "Uniting for Truth and Transparency",
 };
 ---
 
 <PageLayout page={page}>
   <!-- Hero -->
-	<style>
-		/* Small screens (320px - 480px) */
-		@media only screen and (max-width: 480px) {
-			.hero {
-				background-image: url("../assets/hero17-sm.webp");
-			}
-		}
-		/* Medium screens (481px - 768px) */
-		@media only screen and (min-width: 481px) and (max-width: 768px) {
-			.hero {
-				background-image: url("../assets/hero17-md.webp");
-			}
-		}
-		/* Large screens (769px - 1024px) */
-		@media only screen and (min-width: 769px) and (max-width: 1024px) {
-			.hero {
-				background-image: url("../assets/hero17-lg.webp");
-			}
-		}
-		/* Extra large screens (1025px and above) */
-		@media only screen and (min-width: 1025px) {
-			.hero {
-				background-image: url("../assets/hero17-xl.webp");
-			}
-		}
-	</style>
+  <style>
+    /* Responsive styling */
+    @media only screen and (max-width: 480px) {
+      .hero {
+        background-image: url("../assets/hero17-sm.webp");
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+    @media only screen and (min-width: 481px) and (max-width: 768px) {
+      .hero {
+        background-image: url("../assets/hero17-md.webp");
+      }
+    }
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+      .hero {
+        background-image: url("../assets/hero17-lg.webp");
+      }
+    }
+    @media only screen and (min-width: 1025px) {
+      .hero {
+        background-image: url("../assets/hero17-xl.webp");
+      }
+    }
+  </style>
+
   <div class="hero" data-theme="dark">
     <SiteNav/>
     <header class="container">
@@ -44,31 +47,30 @@ const page: Page = {
       <p>{page.heroSubtitle}</p>
     </header>
   </div>
-  <!-- ./ Hero -->
-   
-  <main class="container">
+
+  <!-- Main Content -->
+  <main class="container main-content">
+    <h2>Our Mission</h2>
     <p>
-      We're a philanthropic organization acting to raise the vibration of 
-      Earth through letter writing.
+      UAP Awareness is a philanthropic organization dedicated to raising awareness about Unidentified Aerial Phenomena (UAPs) and advocating for the public disclosure of information related to extraterrestrial life and advanced technologies. Through compassionate and persistent advocacy, we aim to bring transparency to the public and foster a greater understanding of our galactic neighbors.
     </p>
 
+    <h2>Our Approach</h2>
     <p>
-      Our mission is serving humanity with the encouragement of disclosure of
-      our galactic spirit family here on Earth.
+      Our primary activity involves writing letters to U.S. military, scientific, and political leaders. These letters respectfully request the release of all available information related to UAPs, extraterrestrial technologies, and potential galactic interactions that have been withheld from the public. By doing so, we seek to empower humanity with knowledge and promote unity through understanding.
     </p>
 
+    <h2>Inspired by Love</h2>
     <p>
-      We send letters to U.S. military, scientific, and
-      political leaders requesting the public disclosure of information
-      related to unidentified aerial phenomena (UAP), and indications of
-      extraterrestrial life and technologies.
+      UAP Awareness believes that the truth about our galactic spirit family is a key to advancing the evolution of humanity. Our efforts are part of the <a href="https://www.bashar.org/socialexperiment" target="_blank" rel="noopener noreferrer">Interstellar Alliance Social Experiment</a>, which promotes transparency and disclosure with love and respect. This experiment is a call to action for those who seek the truth and are motivated by love and compassion for all beings.
     </p>
 
+    <h2>Join Us</h2>
     <p>
-      This is a loving and inspired action in an <a
-        href="https://www.bashar.org/socialexperiment"
-        >Interstellar Alliance Social Experiment.</a
-      >
+      We invite you to stand with us in this important mission. Together, we can create a world where openness, transparency, and truth prevail. Whether through supporting our campaigns or spreading awareness, your contribution makes a difference.
+    </p>
+    <p>
+      <a href="/donate" class="cta-link">Donate Now to Support Our Mission</a>
     </p>
   </main>
 </PageLayout>

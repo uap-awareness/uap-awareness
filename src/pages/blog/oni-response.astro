@@ -1,0 +1,113 @@
+---
+import SiteNav from "@components/SiteNav.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import { Picture } from 'astro:assets';
+import imgOniEnv from "../../assets/oni-response-env.webp"
+import imgOniLtr1 from "../../assets/oni-response-ltr-p1.webp"
+import imgOniLtr2 from "../../assets/oni-response-ltr-p2.webp"
+const page = {
+  navTitle: "Response from the U.S. Office of Naval Intelligence",
+  heroTitle: "No Records Found",
+  heroSubtitle: "The ONI says they don't have any records on UFOs and UAPs.",
+};
+---
+
+<PageLayout page={page}>
+  <!-- Hero -->
+  <style>
+    /* Responsive styling */
+    @media only screen and (max-width: 480px) {
+      .hero {
+        background-image: url("../../assets/hero15-sm.webp");
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+    @media only screen and (min-width: 481px) and (max-width: 768px) {
+      .hero {
+        background-image: url("../../assets/hero15-md.webp");
+      }
+    }
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+      .hero {
+        background-image: url("../../assets/hero15-lg.webp");
+      }
+    }
+    @media only screen and (min-width: 1025px) {
+      .hero {
+        background-image: url("../../assets/hero20-xl.webp");
+      }
+    }
+  </style>
+
+  <div class="hero" data-theme="dark">
+    <SiteNav/>
+    <header class="container">
+      <h1>{page.heroTitle}</h1>
+      <p>{page.heroSubtitle}</p>
+    </header>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container main-content">
+    <section>
+      <small class="post-date"><i>September 30, 2024</i></small>
+      <h2>Response from the U.S. Office of Naval Intelligence</h2>
+      <p>In response to our August 2024 <a href="https://www.bashar.org/socialexperiment">Interstellar Alliance Social Experiment: Step Three</a> letter, the kind people at the U.S. Office of Naval Intelligence (ONI) have replied with the following message:</p>
+
+      <blockquote>
+        "I'm sorry we do not have any records, and, if there are extraterrestrials, I certainly hope your belief in their benign nature is correct." 
+        <br><br>
+        <i>- A. D. Levitz, General Counsel</i>
+      </blockquote>
+
+      <p>While the ONI claims not to have any records on UFOs or UAPs, they have directed us to the <a href="https://www.aaro.mil/">All-domain Anomaly Resolution Office (AARO)</a> within the U.S. Department of Defense for further inquiries.</p>
+
+      <h3>Letter and Envelope Images</h3>
+
+      <figure>
+        <figcaption>ONI Response Letter, Page 1</figcaption>
+        <Picture
+          src={imgOniLtr1}
+          widths={[480, 768, 1024, 2514]}
+          formats={['webp']}
+          alt="ONI letter page one"
+        />
+      </figure>
+
+      <p>
+        <figure>
+          <figcaption>ONI Response Letter, Page 2</figcaption>
+          <Picture
+            src={imgOniLtr2}
+            widths={[480, 768, 1024, 2514]}
+            formats={['webp']}
+            alt="ONI letter page two"
+          />
+        </figure>
+      </p>
+
+      <p>
+        <figure>
+          <figcaption>Envelope from the U.S. Office of Naval Intelligence</figcaption>
+          <Picture
+            src={imgOniEnv}
+            widths={[480, 768, 1024, 1501]}
+            formats={['webp']}
+            alt="ONI envelope"
+          />
+        </figure>
+      </p>
+    </section>
+
+    <section id="donation-section">
+      <h2>Help Us Continue the Search for Transparency</h2>
+      <p>As we continue our efforts to bring transparency regarding UAPs, we need your support. Your contributions help us cover the costs of sending critical letters to U.S. leaders, including printing, postage, and labor.</p>
+      <a href="/donate" class="cta-link">Donate Now and Support Transparency</a>
+    </section>
+  </main>
+</PageLayout>

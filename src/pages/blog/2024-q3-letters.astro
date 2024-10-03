@@ -1,0 +1,104 @@
+---
+import SiteNav from "@components/SiteNav.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+const page = {
+  navTitle: "2024 Q3 Letters",
+  heroTitle: "2,383 Letters Sent",
+  heroSubtitle: "Supporting public disclosure of UAPs and extraterrestrial life.",
+};
+---
+
+<PageLayout page={page}>
+  <!-- Hero -->
+  <style>
+    /* Responsive styling */
+    @media only screen and (max-width: 480px) {
+      .hero {
+        background-image: url("../../assets/hero15-sm.webp");
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+    @media only screen and (min-width: 481px) and (max-width: 768px) {
+      .hero {
+        background-image: url("../../assets/hero15-md.webp");
+      }
+    }
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+      .hero {
+        background-image: url("../../assets/hero15-lg.webp");
+      }
+    }
+    @media only screen and (min-width: 1025px) {
+      .hero {
+        background-image: url("../../assets/hero20-xl.webp");
+      }
+    }
+  </style>
+
+  <div class="hero" data-theme="dark">
+    <SiteNav/>
+    <header class="container">
+      <h1>{page.heroTitle}</h1>
+      <p>{page.heroSubtitle}</p>
+    </header>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container main-content">
+    <section>
+      <small class="post-date"><i>August 1, 2024</i></small>
+      <h2>2024 Q3 Letters: A Milestone in Advocacy</h2>
+      <p>We’ve reached a significant milestone in our quest for transparency. As part of the Interstellar Alliance Social Experiment, we successfully mailed <strong>2,383</strong> letters to U.S. military, scientific, and political leaders, urging them to disclose information on UAPs and extraterrestrial technologies.</p>
+
+      <h3>Campaign Breakdown</h3>
+      <ul>
+        <li><strong>2,383</strong> total letters sent</li>
+        <li><strong>29</strong> letters to U.S. military leaders</li>
+        <li><strong>452</strong> letters to U.S. scientific leaders</li>
+        <li><strong>1,902</strong> letters to U.S. political leaders</li>
+      </ul>
+
+      <h3>Leaders Reached</h3>
+      <p>Our letters have reached some of the most influential leaders in the U.S., including:</p>
+
+      <h4>Military Leaders:</h4>
+      <ul>
+        <li>All U.S. Joint Chiefs of Staff</li>
+        <li>U.S. Pentagon leaders</li>
+        <li>U.S. Office of Naval Intelligence</li>
+        <li>U.S. Fleet Forces Command</li>
+      </ul>
+
+      <h4>Scientific Leaders:</h4>
+      <ul>
+        <li>NASA leaders</li>
+        <li>NASA scientists</li>
+      </ul>
+
+      <h4>Political Leaders:</h4>
+      <ul>
+        <li>Each member of the U.S. House of Representatives (approximately 439 members)</li>
+        <li>Each member of the U.S. Senate (100 members)</li>
+        <li>Each U.S. state and territory governor (55 members)</li>
+        <li>The U.S. Secretary of State</li>
+        <li>The U.S. Vice President</li>
+        <li>The U.S. President</li>
+      </ul>
+
+      <p>This campaign is part of our ongoing mission of requesting public disclosure and transparency regarding UAPs. We will continue sending letters quarterly until meaningful action is taken.</p>
+
+      <blockquote><strong>We are our governments.</strong> Together, we can create a brighter, more compassionate world for all.</blockquote>
+    </section>
+
+    <section id="donation-section">
+      <h2>Help Us Reach More Leaders</h2>
+      <p>Your contribution ensures that these critical messages reach decision-makers. By supporting our next mailing campaign, you directly fund printing, postage, and labor involved in sending thousands of letters to U.S. leaders.</p>
+      <a href="/donate" class="cta-link">Donate Now and Support Change</a>
+    </section>
+  </main>
+</PageLayout>
