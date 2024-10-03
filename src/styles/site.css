@@ -17,6 +17,9 @@
 .nav {
   display: block;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 1.0);
+  /* Ensure SiteNav stays clickable on Donate page */
+  z-index: 3; /* Keep navigation on top */
+  position: relative;
 }
 
 @media screen and (min-width: 640px) {
