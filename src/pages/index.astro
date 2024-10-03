@@ -3,8 +3,9 @@ import SiteNav from "@components/SiteNav.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import type { Page } from "../site";
 import { Image } from "astro:assets";
-import imgEnvelope from "../assets/ia-step3-envelope.webp";
-import imgLetter from "../assets/ia-step3-letter.webp";
+import { Picture } from 'astro:assets';
+import imgEnvelope from "../assets/ia-step3-env.webp";
+import imgLetter from "../assets/ia-step3-ltr.webp";
 const page: Page = {
 	navTitle:  "Home",
 	heroTitle:  "Advocating for UAP Disclosure",
@@ -101,7 +102,12 @@ const page: Page = {
 					<figcaption>
 						Here's an envelope sent from a recent campaign.
 					</figcaption>
-					<Image src={imgEnvelope} alt="Envelope from a campaign" />
+					<Picture
+						src={imgEnvelope}
+						widths={[480, 768, 1024, 1080]}
+						formats={['webp']}
+						alt="Envelope from a campaign"
+					/>
 				</figure>
 			</p>
 
@@ -110,7 +116,12 @@ const page: Page = {
 					<figcaption>
 						Here's a letter sent from a recent campaign.
 					</figcaption>
-					<Image src={imgLetter} alt="Letter from a campaign" />
+					<Picture
+						src={imgLetter}
+						widths={[480, 768, 1024, 1080]}
+						formats={['webp']}
+						alt="Letter from a campaign"
+					/>
 				</figure>
 			</p>
 		</section>
