@@ -15,8 +15,29 @@ const page: Page = {
 <PageLayout page={page}>
 	<!-- Hero -->
 	<style>
-		.hero {
-			background-image: url("../assets/hero20.webp");
+		/* Small screens (320px - 480px) */
+		@media only screen and (max-width: 480px) {
+			.hero {
+				background-image: url("../assets/hero20-sm.webp");
+			}
+		}
+		/* Medium screens (481px - 768px) */
+		@media only screen and (min-width: 481px) and (max-width: 768px) {
+			.hero {
+				background-image: url("../assets/hero20-md.webp");
+			}
+		}
+		/* Large screens (769px - 1024px) */
+		@media only screen and (min-width: 769px) and (max-width: 1024px) {
+			.hero {
+				background-image: url("../assets/hero20-lg.webp");
+			}
+		}
+		/* Extra large screens (1025px and above) */
+		@media only screen and (min-width: 1025px) {
+			.hero {
+				background-image: url("../assets/hero20-xl.webp");
+			}
 		}
 	</style>
 	<div class="hero" data-theme="dark">
@@ -42,22 +63,22 @@ const page: Page = {
 			</p>
 
 			<hgroup>
-				<h3>We're efficient, economical, and motivated</h3>
+				<h3>Efficient, economical, and motivated</h3>
 			</hgroup>
 			<ul>
 				<li>
-					We mail at significantly discounted postage rates offered to
-					non-profit organizations.
+					We mail at economical postal rates offered to
+					nonprofits.
 				</li>
 				<li>
-					We write software that collects addresses, generates letters, and
-					generates envelopes.
+					We write our own software to collect addresses, generate letters,
+					and generate envelopes.
 				</li>
 				<li>
-					We write software that pre-sorts mailpieces for postal discounts.
+					We presort mailpieces for postal discounts.
 				</li>
 				<li>
-					We purchase bulk envelopes and bulk paper with discounted business
+					Paper and envelopes are bought in bulk at economical business
 					rates.
 				</li>
 				<li>We print, stuff, and drive letters to a post office.</li>

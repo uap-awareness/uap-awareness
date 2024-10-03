@@ -12,8 +12,29 @@ const page: Page = {
 <PageLayout page={page}>
 	<!-- Hero -->
 	<style>
-		.hero {
-			background-image: url("../assets/hero01.webp");
+		/* Small screens (320px - 480px) */
+		@media only screen and (max-width: 480px) {
+			.hero {
+				background-image: url("../assets/hero01-sm.webp");
+			}
+		}
+		/* Medium screens (481px - 768px) */
+		@media only screen and (min-width: 481px) and (max-width: 768px) {
+			.hero {
+				background-image: url("../assets/hero01-md.webp");
+			}
+		}
+		/* Large screens (769px - 1024px) */
+		@media only screen and (min-width: 769px) and (max-width: 1024px) {
+			.hero {
+				background-image: url("../assets/hero01-lg.webp");
+			}
+		}
+		/* Extra large screens (1025px and above) */
+		@media only screen and (min-width: 1025px) {
+			.hero {
+				background-image: url("../assets/hero01-xl.webp");
+			}
 		}
 	</style>
 	<div class="hero" data-theme="dark">
