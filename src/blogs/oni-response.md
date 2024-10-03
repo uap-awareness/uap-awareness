@@ -2,7 +2,7 @@
 layout: ../layouts/BlogLayout.astro
 pubDate: 2024-09-30T12:00:00.000Z
 title: "Response from the U.S. Office of Naval Intelligence"
-subtitle: "No Records Found"
+subtitle: "No records found"
 description: "The ONI says they don't have any records on UFOs and UAPs."
 ---
 
