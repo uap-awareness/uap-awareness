@@ -22,10 +22,6 @@ const htmlTitle = siteTitle + ': ' + page.navTitle;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <ClientRouter />
-  </head>
-  <body>
-    <slot />
-    <SiteFooter />
     <!-- Google tag (gtag.js) -->
     <script src="https://www.googletagmanager.com/gtag/js?id=G-7WJ9NLLFDK"></script>
     <script is:inline>
@@ -34,5 +30,9 @@ const htmlTitle = siteTitle + ': ' + page.navTitle;
       gtag('js', new Date());
       gtag('config', 'G-7WJ9NLLFDK');
     </script>
+  </head>
+  <body>
+    <slot />
+    <SiteFooter />
   </body>
 </html>

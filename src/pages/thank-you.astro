@@ -1,177 +1,128 @@
 ---
 import SiteNav from "@components/SiteNav.astro";
-import PageLayout from "@layouts/PageLayout.astro";
+import "../styles/site.css"
+import { siteTitle } from '../site';
+import type { Page } from "../site";
+import { ClientRouter } from "astro:transitions";
+import SiteFooter from "@components/SiteFooter.astro";
+
+interface Props {
+  page: Page;
+}
 const page = {
   navTitle: "Thank You",
   heroTitle: "Thank You",
   heroSubtitle: "Your kindness in action",
 };
+const htmlTitle = siteTitle + ': ' + page.navTitle;
 ---
-
-<PageLayout page={page}>
-  <!-- Hero -->
-  <style>
-    .hero {
-      position: relative;
-      color: #ffffff;
-      text-align: center;
-      padding: 4rem 2rem;
-      background-size: cover;
-      background-position: center;
-      background-color: #1a1a1a;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1;
-    }
-
-    .hero header {
-      z-index: 2;
-      position: relative;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-    }
-
-    /* Responsive styling */
-    @media only screen and (max-width: 480px) {
-      .hero {
-        background-image: url("../assets/hero20-sm.webp");
+<html lang="en" data-theme="light">
+  <head>
+    <title>{htmlTitle}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="sitemap" href="/sitemap.xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <ClientRouter />
+    <!-- Google Analytics tag (gtag.js) -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-7WJ9NLLFDK"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7WJ9NLLFDK');
+      // Google AdWords Event snippet for Purchase conversion page
+      gtag('event', 'conversion', {
+          'send_to': 'AW-16724302405/KMeQCJWlkNkZEMW04qY-',
+          'value': 1.0,
+          'currency': 'USD',
+          'transaction_id': ''
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Hero -->
+    <style>
+      /* Responsive styling */
+      @media only screen and (max-width: 480px) {
+        .hero {
+          background-image: url("../assets/hero20-sm.webp");
+        }
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
       }
-      .hero h1 {
-        font-size: 2rem;
+      @media only screen and (min-width: 481px) and (max-width: 768px) {
+        .hero {
+          background-image: url("../assets/hero20-md.webp");
+        }
       }
-      .hero p {
-        font-size: 1rem;
+      @media only screen and (min-width: 769px) and (max-width: 1024px) {
+        .hero {
+          background-image: url("../assets/hero20-lg.webp");
+        }
       }
-    }
-    @media only screen and (min-width: 481px) and (max-width: 768px) {
-      .hero {
-        background-image: url("../assets/hero20-md.webp");
+      @media only screen and (min-width: 1025px) {
+        .hero {
+          background-image: url("../assets/hero20-xl.webp");
+        }
       }
-    }
-    @media only screen and (min-width: 769px) and (max-width: 1024px) {
-      .hero {
-        background-image: url("../assets/hero20-lg.webp");
-      }
-    }
-    @media only screen and (min-width: 1025px) {
-      .hero {
-        background-image: url("../assets/hero20-xl.webp");
-      }
-    }
+    </style>
 
-    .main-content {
-      margin-top: 1.5rem;
-      line-height: 1.6;
-    }
-
-    .main-content h1, .main-content h3 {
-      font-size: 1.8rem;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      color: #00bfff;
-    }
-
-    .main-content p {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .main-content a {
-      color: #00bfff;
-      text-decoration: none;
-    }
-
-    .main-content a:hover {
-      text-decoration: underline;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: #00bfff;
-      color: #000;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .cta-button.secondary {
-      background-color: #ffffff;
-      color: #00bfff;
-      border: 2px solid #00bfff;
-    }
-
-    .cta-button.primary {
-      background-color: #00bfff;
-      color: #ffffff;
-    }
-
-    .cta-button:hover {
-      opacity: 0.85;
-    }
-  </style>
-
-  <div class="hero" data-theme="dark">
-    <SiteNav/>
-    <header class="container">
-      <h1>{page.heroTitle}</h1>
-      <p>{page.heroSubtitle}</p>
-    </header>
-  </div>
-
-  <!-- Main Content -->
-  <main class="container main-content">
-    <article>
-      <header>
-        <h1>Thank You for Your Generosity!</h1>
-        <p>Your contribution makes a meaningful impact in our mission to raise awareness of unidentified aerial phenomena and advocate for transparency.</p>
+    <div class="hero" data-theme="dark">
+      <SiteNav/>
+      <header class="container">
+        <h1>{page.heroTitle}</h1>
+        <p>{page.heroSubtitle}</p>
       </header>
+    </div>
 
-      <section>
-        <hgroup>
-          <h3>Your Impact</h3>
-          <p>With your support, UAP Awareness is one step closer to uncovering the truth and promoting public education about UAPs.</p>
-        </hgroup>
+    <!-- Main Content -->
+    <main class="container main-content">
+      <article>
+        <header>
+          <h1>Thank You for Your Generosity!</h1>
+          <p>Your contribution makes a meaningful impact in our mission to raise awareness of unidentified aerial phenomena and advocate for transparency.</p>
+        </header>
 
-        <hgroup>
-          <h3>Letter Writing</h3>
-          <p><strong>2,383</strong> total letters sent to U.S. military, scientific, and political leaders, thanks to donors like you.</p>
-        </hgroup>
+        <section>
+          <hgroup>
+            <h3>Your Impact</h3>
+            <p>With your support, UAP Awareness is one step closer to uncovering the truth and promoting public education about UAPs.</p>
+          </hgroup>
 
-        <hgroup>
-          <h3>Interstellar Alliance Social Experiment</h3>
-          <p>Learn more about the <a href="https://www.bashar.org/socialexperiment">Interstellar Alliance Social Experiment</a> at <a href="https://www.bashar.org/">Bashar.org</a>.</p>
-        </hgroup>
-      </section>
+          <hgroup>
+            <h3>Letter Writing</h3>
+            <p><strong>2,383</strong> total letters sent to U.S. military, scientific, and political leaders, thanks to donors like you.</p>
+          </hgroup>
 
-      <section>
-        <hgroup>
-          <h3>Stay Connected</h3>
-          <p>Follow our blog for updates on the letter-writing campaigns.</p>
-        </hgroup>
-        <a href="/blog" class="cta-button secondary">Read Our Blog</a>
-      </section>
+          <hgroup>
+            <h3>Interstellar Alliance Social Experiment</h3>
+            <p>Learn more about the <a href="https://www.bashar.org/socialexperiment">Interstellar Alliance Social Experiment</a> at <a href="https://www.bashar.org/">Bashar.org</a>.</p>
+          </hgroup>
+        </section>
 
-      <footer>
-        <p>Thank you again for supporting UAP Awareness. Together we are making a difference!</p>
-        <a href="/">Return to Homepage</a>
-      </footer>
-    </article>
-  </main>
-</PageLayout>
+        <section>
+          <hgroup>
+            <h3>Stay Connected</h3>
+            <p>Follow our blog for updates on the letter-writing campaigns.</p>
+          </hgroup>
+          <a href="/blog" class="cta-button secondary">Read Our Blog</a>
+        </section>
+
+        <footer>
+          <p>Thank you again for supporting UAP Awareness. Together we are making a difference!</p>
+          <a href="/">Return to Homepage</a>
+        </footer>
+      </article>
+    </main>
+    
+    <SiteFooter />
+  </body>
+</html>
+
